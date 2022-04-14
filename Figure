@@ -1,0 +1,69 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Изберете вид фигура :");
+        System.out.println("1 -- за Триъгълник \n2 -- за Правоъгълник \n3 -- за Кръг ");
+        byte figure = input.nextByte();
+        
+        if (figure==1) {
+            System.out.println("\nВие избрахте ТРИЪГЪЛНИК :");
+            calcTriangel(sideX,sideY,sideZ);  //МЕТОД ЗА ТРИЪГЪЛНИК
+          } else {
+            if (figure==2) {
+              System.out.println("\nВие избрахте ПРАВОЪГЪЛНИК :");
+                                         //МЕТОД ЗА ПРАВОЪГЪЛНИК
+            } else {
+              if ( figure==3) {
+                System.out.println("\nВие избрахте КРЪГ :");
+                                        //МЕТОД ЗА КРЪГ
+            } else {
+              System.out.println("\nНЕВАЛИДНИ ДАННИ :");
+            }
+            
+          }
+          
+        }
+       
+    }
+    
+    public static double calcTriangel (double sideX, double sideY, double sideZ) {
+       
+        System.out.println("Програма за проверка на вид триъгълник :");
+        System.out.println("----------------------------------------");
+        System.out.println("Въведете страна 'X' :");
+        double sideX = input.nextDouble();
+        System.out.println("Въведете страна 'Y' :");
+        double sideY = input.nextDouble();
+        System.out.println("Въведете страна 'Z' :");
+        double sideZ = input.nextDouble();
+        
+
+        if (sideX == sideY && sideX == sideZ) {
+            System.out.println("Тригълника е: РАВНОСТРАНЕН");
+            System.out.println("--------------------------");
+        } else {
+            if (sideX == sideY || sideX == sideZ || sideY == sideZ) {
+                System.out.println("Тригълника е: РАВНОБЕДРЕН");
+                System.out.println("--------------------------");
+            } else {
+                System.out.println("Тригълника е: РАЗНОСТРАНЕН");
+                System.out.println("--------------------------");
+            }
+        }
+
+        double perimeterP = (sideX + sideY + sideZ);
+        System.out.printf("\nОбиколката на тригълника е: P = %.2f", perimeterP);
+        double semiperimeterP = ((sideX + sideY + sideZ)/2);
+        double px = (semiperimeterP - sideX);
+        double py = (semiperimeterP - sideY);
+        double pz = (semiperimeterP - sideZ);
+        double faceS = Math.sqrt((semiperimeterP*px*py*pz));
+
+        System.out.printf("\nЛицето: S = %.2f", faceS);
+        return faceS;
+    }
+
+}
